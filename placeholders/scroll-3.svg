@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2000" viewBox="0 0 1600 2000">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e9dcc0"/>
+      <stop offset="100%" stop-color="#c7aa7a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="2000" fill="url(#g3)"/>
+  <ellipse cx="1000" cy="520" rx="420" ry="280" fill="#fff0cd" opacity="0.46"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Manrope, Arial" font-size="56" letter-spacing="8" fill="#6d5532" opacity="0.7">STORY IMAGE 03</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="1440" viewBox="0 0 960 1440">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f1ece0"/>
+      <stop offset="100%" stop-color="#d8ccb7"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fff5d8" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#fff5d8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="1440" fill="url(#bg)"/>
+  <rect width="960" height="1440" fill="url(#glow)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M120 1160C280 980 420 940 620 820C730 750 800 640 860 520" stroke="#b9965c" stroke-width="5" opacity="0.45"/>
+    <path d="M110 1250C300 1070 520 1030 760 860" stroke="#6f5634" stroke-width="2.5" opacity="0.25"/>
+  </g>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+        font-family="Manrope, Arial, sans-serif" font-size="42" letter-spacing="8"
+        fill="#6b5535" opacity="0.62">PHOTO PLACEHOLDER</text>
+</svg>

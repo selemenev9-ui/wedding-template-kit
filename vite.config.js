@@ -121,6 +121,7 @@ export default defineConfig(({ mode }) => {
     };
 
     return {
+        base: '/wedding-template-kit/',
         plugins: [rsvpTelegramPlugin(env)],
         server: {
             proxy: {

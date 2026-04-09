@@ -1,0 +1,22 @@
+{
+  "name": "awwwards-wedding",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/convert-images.js && vite build",
+    "preview": "vite preview",
+    "images": "node scripts/convert-images.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.34.5",
+    "vite": "^8.0.1"
+  },
+  "dependencies": {
+    "gsap": "^3.14.2",
+    "lenis": "^1.3.21",
+    "split-type": "^0.3.4",
+    "three": "^0.183.2"
+  }
+}

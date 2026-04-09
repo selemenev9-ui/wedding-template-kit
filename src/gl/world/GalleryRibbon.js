@@ -7,7 +7,7 @@ import { getWorld } from '../World.js';
 ───────────────────────────────────────────────────────────────────── */
 const TOTAL = 24;
 const POOL  = 7;
-const BASE_PATH = '/photos/gallery/';
+const PLACEHOLDER_CARD = `${import.meta.env.BASE_URL || '/'}placeholders/gallery-card.svg`;
 
 /** Clear gap between photo *edges* (fraction of card height) — editorial rhythm */
 const EDGE_GAP_FRAC = 0.055;
@@ -98,7 +98,7 @@ const FRAG = /* glsl */`
 `;
 
 const _FALLBACK = (() => {
-    const t = new THREE.DataTexture(new Uint8Array([24, 16, 12, 255]), 1, 1);
+    const t = new THREE.DataTexture(new Uint8Array([230, 226, 214, 255]), 1, 1);
     t.needsUpdate = true;
     return t;
 })();
@@ -384,7 +384,7 @@ export default class GalleryRibbon {
         this._texPending.add(idx);
 
         new THREE.TextureLoader().load(
-            `${BASE_PATH}${idx + 1}.webp`,
+            PLACEHOLDER_CARD,
             (tex) => {
                 tex.colorSpace = THREE.SRGBColorSpace;
                 tex.minFilter = THREE.LinearMipmapLinearFilter;

@@ -7,7 +7,7 @@ export const siteContent = {
     },
     hero: {
         tagline: 'YOU ARE INVITED TO OUR WEDDING',
-        names: ['Your Name', 'Partner Name'],
+        names: ['Name One', 'Name Two'],
         ampersand: '&',
         dateDisplay: '08 · 08 · 2026',
     },

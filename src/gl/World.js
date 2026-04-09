@@ -6,6 +6,8 @@ import Renderer from './Renderer.js';
 import ResourceLoader from './ResourceLoader.js';
 import StudioDome from './world/StudioDome.js';
 
+const ASSET_BASE = import.meta.env.BASE_URL || '/';
+
 export default class World {
     static instance = null;
 
@@ -76,9 +78,9 @@ export default class World {
         this.scene.add(this.shadowCatcher);
 
         this.resources = new ResourceLoader([
-            { name: 'envMap', type: 'hdri', path: '/hdri/studio_small_09_1k.hdr' },
-            { name: 'ringA', type: 'gltf', path: '/models/ring_a.glb' },
-            { name: 'ringB', type: 'gltf', path: '/models/ring_b.glb' },
+            { name: 'envMap', type: 'hdri', path: `${ASSET_BASE}hdri/studio_small_09_1k.hdr` },
+            { name: 'ringA', type: 'gltf', path: `${ASSET_BASE}models/ring_a.glb` },
+            { name: 'ringB', type: 'gltf', path: `${ASSET_BASE}models/ring_b.glb` },
         ]);
 
         /** Set from `main.js` when `HeroText` is created (layered load). */

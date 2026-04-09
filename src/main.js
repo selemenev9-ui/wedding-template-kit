@@ -86,13 +86,17 @@ function applySiteContentConfig() {
 
     const attendanceInputs = document.querySelectorAll('input[name="attendance"]');
     const attendanceLabels = document.querySelectorAll('.rsvp-radio-label');
-    if (attendanceInputs.length >= 2 && c.rsvp?.attendanceOptions?.length >= 2) {
-        attendanceInputs[0].value = c.rsvp.attendanceOptions[0].value;
-        attendanceInputs[1].value = c.rsvp.attendanceOptions[1].value;
-        const firstTextNode = attendanceLabels[0]?.childNodes[2];
-        const secondTextNode = attendanceLabels[1]?.childNodes[2];
-        if (firstTextNode) firstTextNode.textContent = ` ${c.rsvp.attendanceOptions[0].label}`;
-        if (secondTextNode) secondTextNode.textContent = ` ${c.rsvp.attendanceOptions[1].label}`;
+    if (attendanceInputs.length >= 2 && attendanceLabels.length >= 2 && c.rsvp?.attendanceOptions?.length >= 2) {
+        const firstChecked = attendanceInputs[0].checked;
+        const secondChecked = attendanceInputs[1].checked;
+        attendanceLabels[0].innerHTML =
+            `<input type="radio" name="attendance" value="${c.rsvp.attendanceOptions[0].value}"${firstChecked ? ' checked' : ''} />` +
+            '<span class="radio-custom"></span> ' +
+            c.rsvp.attendanceOptions[0].label;
+        attendanceLabels[1].innerHTML =
+            `<input type="radio" name="attendance" value="${c.rsvp.attendanceOptions[1].value}"${secondChecked ? ' checked' : ''} />` +
+            '<span class="radio-custom"></span> ' +
+            c.rsvp.attendanceOptions[1].label;
     }
 
     const finalDate = document.querySelector('.final-date');
@@ -199,12 +203,21 @@ function fitHeroNamesToViewport() {
     const shouldStack = window.matchMedia('(max-width: 767px) and (pointer: coarse)').matches;
     heroNamesDOM.classList.toggle('hero-names--stacked', shouldStack);
     if (!shouldStack) {
+        const desktopMaxWidth = Math.max(360, window.innerWidth - HERO_NAMES_SIDE_PADDING_PX * 2);
         heroNamesDOM.style.removeProperty('max-width');
         heroNamesDOM.style.removeProperty('white-space');
         heroNamesDOM.style.removeProperty('display');
         heroNamesDOM.style.removeProperty('flex-wrap');
         heroNamesDOM.style.removeProperty('justify-content');
-        heroNamesDOM.style.removeProperty('font-size');
+        let sizePx = Math.min(128, Math.floor(window.innerWidth * 0.118));
+        sizePx = Math.max(52, sizePx);
+        heroNamesDOM.style.fontSize = `${sizePx}px`;
+        let guard = 0;
+        while (heroNamesDOM.getBoundingClientRect().width > desktopMaxWidth && sizePx > 52 && guard < 200) {
+            sizePx -= 1;
+            heroNamesDOM.style.fontSize = `${sizePx}px`;
+            guard += 1;
+        }
         return;
     }
 
